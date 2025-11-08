@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Reveal from './Reveal'
 
 const DATA = [
   {
@@ -28,7 +29,9 @@ export default function Testimonials() {
   return (
     <section className="py-16 sm:py-24 bg-white" aria-labelledby="testimonials-title">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 id="testimonials-title" className="text-2xl sm:text-3xl font-semibold text-[#0F101D]">What clients say</h2>
+        <Reveal>
+          <h2 id="testimonials-title" className="text-2xl sm:text-3xl font-semibold text-[#0F101D]">What clients say</h2>
+        </Reveal>
         <div className="mt-8 overflow-hidden">
           <div className="relative">
             {DATA.map((t, i) => (
@@ -36,8 +39,10 @@ export default function Testimonials() {
                 key={i}
                 className={`transition-opacity duration-500 ${i === index ? 'opacity-100' : 'opacity-0 absolute inset-0'}`}
               >
-                <p className="text-xl sm:text-2xl font-medium text-[#0F101D]">“{t.quote}”</p>
-                <footer className="mt-4 text-sm text-[#414141]">— {t.author}</footer>
+                <Reveal>
+                  <p className="text-xl sm:text-2xl font-medium text-[#0F101D]">“{t.quote}”</p>
+                  <footer className="mt-4 text-sm text-[#414141]">— {t.author}</footer>
+                </Reveal>
               </blockquote>
             ))}
           </div>
